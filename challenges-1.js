@@ -74,7 +74,7 @@ function getSurvivorCountForClass(data, pclass) {
 // the number of passengers who did not survive for that class. 
 
 function getCasualityCountForClass(data, pclass) {
-	return 0
+	return data.filter((p) => p.fields.pclass === pclass && p.fields.survived === 'No').length
 }
 
 // 7 ---------------------------------------------------------------
@@ -82,7 +82,10 @@ function getCasualityCountForClass(data, pclass) {
 // passenger data where the age is missing. 
 
 function getMinAge(data) {
-	return 0
+	const ages = data.map(passenger => {
+		return passenger.fields.age;
+	}).filter( p => p !== undefined)
+	return Math.min(...ages) 
 }
 
 // 8 ---------------------------------------------------------------
