@@ -57,10 +57,7 @@ function getCasualityCount(data) {
 // Return a number
 
 function countPassengersInClass(data, pclass) {
-	const pclassthree = data.filter((p) => {
-		return p.fields.pclass === 3
-	})
-	return pclassthree.length
+	return data.filter((p) => p.fields.pclass === pclass).length
 }
 
 // 5 ---------------------------------------------------------------
