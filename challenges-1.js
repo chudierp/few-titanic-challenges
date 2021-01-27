@@ -44,10 +44,10 @@ function getSurvivorCount(data) {
 // Return a number.
 
 function getCasualityCount(data) {
-	const pclassthree = data.filter((p) => {
-		return p.fields.pclass === 3
-	})
-	return pclassthree.length
+	const casuality = data.filter((p) => {
+		return p.fields.survived === 'No'
+	});
+	return casuality.length
 }
 
 // 4 ---------------------------------------------------------------
@@ -57,7 +57,10 @@ function getCasualityCount(data) {
 // Return a number
 
 function countPassengersInClass(data, pclass) {
-	return 0
+	const pclassthree = data.filter((p) => {
+		return p.fields.pclass === 3
+	})
+	return pclassthree.length
 }
 
 // 5 ---------------------------------------------------------------
