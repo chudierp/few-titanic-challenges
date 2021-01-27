@@ -65,7 +65,7 @@ function countPassengersInClass(data, pclass) {
 // the data and passenger class. Return only passengers  
 
 function getSurvivorCountForClass(data, pclass) {
-	return 0
+	return data.filter((p) => p.fields.pclass === pclass && p.fields.survived === 'Yes').length
 }
 
 // 6 ---------------------------------------------------------------
