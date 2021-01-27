@@ -92,7 +92,10 @@ function getMinAge(data) {
 // Return the age of the oldest passenger. 
 
 function getMaxAge(data) {
-	return 0
+	const ages = data.map(passenger => {
+		return passenger.fields.age;
+	}).filter( p => p !== undefined)
+	return Math.max(...ages)
 }
 
 // 9 ---------------------------------------------------------------
@@ -101,7 +104,7 @@ function getMaxAge(data) {
 // or Q. 
 
 function getEmbarkedCount(data, embarked) {
-	return 0
+	return data.filter((p) => p.fields.embarked === embarked).length
 }
 
 // 10 ---------------------------------------------------------------
@@ -109,7 +112,8 @@ function getEmbarkedCount(data, embarked) {
 // for some passengers you'll need to filter this out! 
 
 function getMinFare(data) {
-	return 0
+	const fares = data.map(p => p.fields.fare).filter(f => f !== undefined )
+  	return Math.min(...fares)
 }
 
 // 11 ---------------------------------------------------------------
@@ -117,14 +121,15 @@ function getMinFare(data) {
 // passengers are missing data for fare.
 
 function getMaxFare(data) {
-	return 0
+	const fares = data.map(p => p.fields.fare).filter(f => f !== undefined )
+  return Math.max(...fares)
 }
 
 // 12 ---------------------------------------------------------------
 // Return the count of passengers by gender. 
 
 function getPassengersByGender(data, gender) {
-	return 0
+	return data.filter(p => p.fields.sex === gender).length
 }
 
 // 13 ---------------------------------------------------------------
